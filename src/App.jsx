@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Reducer apiKey={"22ddd9d2e20b44159efd7638435c444d"}>
+        <Reducer apiKey={process.env.REACT_APP_API_KEY}>
           {({ store, actions }) => (
               <div>
                 {store.authenticated ? (

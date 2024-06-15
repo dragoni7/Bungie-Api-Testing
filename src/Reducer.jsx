@@ -12,7 +12,7 @@ class Reducer extends Component {
 
     onAuthorize = () => {
         return window.location.replace(
-          `https://www.bungie.net/en/OAuth/Authorize?client_id=${47209}&response_type=code`,
+          `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=code`,
         );
       };
 

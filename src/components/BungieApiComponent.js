@@ -55,7 +55,7 @@ function BungieApiComponent() {
   function itemInstanceCall(item_instance) {
     return axios.get('https://www.bungie.net/platform/Destiny2/1/Profile/4611686018441343959/Item/' + item_instance + '/?components=304,305,300,307', {
       headers: {
-        "X-API-Key":'22ddd9d2e20b44159efd7638435c444d'
+        "X-API-Key": process.env.REACT_APP_API_KEY
       },
       responseType: "json"
     })

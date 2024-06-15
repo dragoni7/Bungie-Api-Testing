@@ -31,7 +31,7 @@ function getAuthorization(apiKey, token, grantType) {
   return axios
     .post(
       'https://www.bungie.net/platform/app/oauth/token/',
-      `&client_id=${47209}&client_secret=${"fmZXC.l7ferDqozZU58bGoo7KS9yUtCvgttg7qyy.zE"}&${
+      `&client_id=${47209}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&${
         grantType === 'refresh_token' ? 'refresh_token' : 'code'
       }=${token}&grant_type=${grantType}`,
       {
