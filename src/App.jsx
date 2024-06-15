@@ -16,8 +16,6 @@ function App() {
       var authCodeHref = window.location.href;
       console.log(authCodeHref);
       setAuthCode(authCodeHref.split('code=')[1]);
-      console.log(authCodeHref.split('code=')[1]);
-      console.log(authCode);
     }
 
     var tokenData = undefined;
@@ -33,7 +31,7 @@ function App() {
         body: new URLSearchParams({
           'client_id': process.env.REACT_APP_CLIENT_ID,
           'grant_type': "authorization_code",
-          'code': authCode
+          'code': authCodeHref.split('code=')[1]
         }).toString()
       }).then(function(response) {
         console.log(response);
