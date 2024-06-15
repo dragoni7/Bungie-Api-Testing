@@ -15,7 +15,7 @@ class App extends Component {
                     authenticated
                   </div>
                 ) : (
-                  <button onClick={actions.onAuthorize}>Log in</button>
+                  <button onClick={actions.onAuthorize}>{process.env.REACT_APP_API_KEY}</button>
                 )}
               </div>
           )}
