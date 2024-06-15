@@ -1,14 +1,17 @@
 import './App.css';
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import BungieApiComponent from './components/BungieApiComponent'
 
 function App() {
 
-  useEffect(() => {
-    window.location.replace(`https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=code`)
+  const [authCode, setAuthCode] = useState(undefined);
 
+  function logIn() {
+    window.location.replace(`https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=code`)
+  }
+
+  useEffect(() => {
     var tokenData = undefined;
-    var authCode = undefined;
 
     if (window.location.href.includes("code=")) {
       fetch('https://www.bungie.net/Platform/App/OAuth/Token/', {
@@ -38,7 +41,8 @@ function App() {
 
     return (
       <div className="App">
-        
+        authCode
+        <button onClick={logIn}>Log In</button>
       </div>
     );
 }
