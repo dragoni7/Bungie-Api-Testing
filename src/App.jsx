@@ -11,6 +11,17 @@ function App() {
   }
 
   useEffect(() => {
+
+    if (window.location.href.includes("code=")) {
+      authCodeHref = window.location.href;
+      console.log(authCodeHref);
+      var codeLoc = authCodeHref.indexOf("code=");
+      var codeEndLoc = authCodeHref.indexOf("&", 15);
+      setAuthCode(authCodeHref.substring(codeLoc + 5, codeEndLoc));
+    
+      console.log(authCode);
+    }
+
     var tokenData = undefined;
 
     if (window.location.href.includes("code=")) {
@@ -41,7 +52,7 @@ function App() {
 
     return (
       <div className="App">
-        authCode
+        {authCode}
         <button onClick={logIn}>Log In</button>
       </div>
     );
