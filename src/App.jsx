@@ -15,10 +15,8 @@ function App() {
     if (window.location.href.includes("code=")) {
       var authCodeHref = window.location.href;
       console.log(authCodeHref);
-      var codeLoc = authCodeHref.indexOf("code=");
-      var codeEndLoc = authCodeHref.indexOf("&", 15);
-      setAuthCode(authCodeHref.substring(codeLoc + 5, codeEndLoc));
-    
+      setAuthCode(authCodeHref.split('code=')[1]);
+      console.log(authCodeHref.split('code=')[1]);
       console.log(authCode);
     }
 
