@@ -26,6 +26,29 @@ class Reducer extends Component {
         })
     }
 
+    componentDidMount() {
+        const manifestRequestService = ManifestRequestService(this.props.manifestVersion);
+        return store
+          .get('Vault::AccountIndex')
+          .then(savedAccountIndex => {
+            return BungieAuthorizationService(this.state.apiKey).then(authorization => {
+              return BungieRequestService(authorization, this.state.apiKey.key)
+                .getMembershipById()
+                .then(membership => {
+                  return this.setMembership(
+                    membership,
+                    authorization,
+                    manifestRequestService,
+                    savedAccountIndex,
+                  );
+                });
+            });
+          })
+          .catch(error => {
+            console.log(`Start Up Error: ${error.message}`);
+          });
+      }
+
     render() {
         return <div ref="client">{this.props.children({ store: this.state, actions: this })}</div>;
     }
