@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/TempBungieApiClient/static/css/main.4e015d34.css",
-    "main.js": "/TempBungieApiClient/static/js/main.9707a856.js",
-    "static/js/453.56d10f49.chunk.js": "/TempBungieApiClient/static/js/453.56d10f49.chunk.js",
-    "index.html": "/TempBungieApiClient/index.html",
-    "main.4e015d34.css.map": "/TempBungieApiClient/static/css/main.4e015d34.css.map",
-    "main.9707a856.js.map": "/TempBungieApiClient/static/js/main.9707a856.js.map",
-    "453.56d10f49.chunk.js.map": "/TempBungieApiClient/static/js/453.56d10f49.chunk.js.map"
+    "main.css": "/Bungie-Api-Testing/static/css/main.4e015d34.css",
+    "main.js": "/Bungie-Api-Testing/static/js/main.5bc71e5b.js",
+    "static/js/453.56d10f49.chunk.js": "/Bungie-Api-Testing/static/js/453.56d10f49.chunk.js",
+    "index.html": "/Bungie-Api-Testing/index.html",
+    "main.4e015d34.css.map": "/Bungie-Api-Testing/static/css/main.4e015d34.css.map",
+    "main.5bc71e5b.js.map": "/Bungie-Api-Testing/static/js/main.5bc71e5b.js.map",
+    "453.56d10f49.chunk.js.map": "/Bungie-Api-Testing/static/js/453.56d10f49.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4e015d34.css",
-    "static/js/main.9707a856.js"
+    "static/js/main.5bc71e5b.js"
   ]
 }
