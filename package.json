@@ -1,17 +1,24 @@
 {
   "name": "bungie-api-testing",
+  "homepage": "https://dragoni7.github.io/TempBungieApiClient",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tasoskakour/react-use-oauth2": "^2.0.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.2",
+    "oidc-client": "^1.11.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
+    "react-simple-oauth2-login": "^0.5.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
