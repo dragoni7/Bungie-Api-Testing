@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
 
     if (window.location.href.includes("code=")) {
-      authCodeHref = window.location.href;
+      var authCodeHref = window.location.href;
       console.log(authCodeHref);
       var codeLoc = authCodeHref.indexOf("code=");
       var codeEndLoc = authCodeHref.indexOf("&", 15);
