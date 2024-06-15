@@ -6,6 +6,7 @@ class Reducer extends Component {
         super(props);
         this.state = {
             authenticated: false,
+            membership: {},
             apiKey: props.apiKey
         }
     }

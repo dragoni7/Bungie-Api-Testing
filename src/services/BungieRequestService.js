@@ -24,7 +24,7 @@ export default function(authorization, apiKey, membershipType, fakeMembershipID)
 
         getMembershipById(fakeMembershipID) {
             return bungieRequest
-                .get(`/User/GetMembershipsById/${fakeMembershipID || authorization.membership_id}/${254}/`)
+                .get(`/User/GetMembershipsDataById/${fakeMembershipID || authorization.membership_id}/${254}/`)
                 .then(handleBungieResponse);
             },
         
