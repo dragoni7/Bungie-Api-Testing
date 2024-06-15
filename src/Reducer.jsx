@@ -28,7 +28,7 @@ class Reducer extends Component {
 
     componentDidMount() {
         return store
-          .get('Vault::AccountIndex')
+          .get('D2LC::AccountIndex')
           .then(savedAccountIndex => {
             return BungieAuthService(this.state.apiKey).then(authorization => {
               return BungieRequestService(authorization, this.state.apiKey.key)

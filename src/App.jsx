@@ -12,7 +12,7 @@ class App extends Component {
               <div>
                 {store.authenticated ? (
                   <div>
-                    authenticated
+                    <BungieApiComponent />
                   </div>
                 ) : (
                   <button onClick={actions.onAuthorize}>Log in</button>
