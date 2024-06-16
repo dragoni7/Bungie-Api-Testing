@@ -1,10 +1,11 @@
 import './App.css';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 import BungieApiComponent from './components/BungieApiComponent'
 
 function App() {
 
-  const [authCode, setAuthCode] = useState(undefined);
+  const [authCode, setAuthCode] = useState(undefined)
+  const [tokenData, setTokenData] = useState(undefined)
 
   function logIn() {
     window.location.replace(`https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=code`)
@@ -14,11 +15,8 @@ function App() {
 
     if (window.location.href.includes("code=")) {
       var authCodeHref = window.location.href;
-      console.log(authCodeHref);
       setAuthCode(authCodeHref.split('code=')[1]);
     }
-
-    var tokenData = undefined;
 
     if (window.location.href.includes("code=")) {
       fetch('https://www.bungie.net/Platform/App/OAuth/Token/', {
@@ -38,7 +36,7 @@ function App() {
         return response.json();
       })
       .then(function(data) {
-        tokenData = data;
+        setTokenData(data)
         console.log(data);
       })
     }
@@ -48,8 +46,7 @@ function App() {
 
     return (
       <div className="App">
-        {authCode}
-        <button onClick={logIn}>Log In</button>
+        {authCode === undefined ? <button onClick={logIn}>Log In</button> : <BungieApiComponent membershipID={tokenData.membership_id}/>}
       </div>
     );
 }

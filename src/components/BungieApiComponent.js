@@ -40,9 +40,10 @@ const STRENGTH_MOD = 4287799666;
 const MINOR_STRENGTH_MOD = 2639422088;
 const ARTIFICE_STRENGTH_MOD = 2507624050;
 
-function BungieApiComponent() {
+function BungieApiComponent({membershipID, token}) {
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(null)
+  const [userName, setUserName] = useState(null)
 
   const equipment_dict = {
     Helmets: [],
@@ -53,7 +54,7 @@ function BungieApiComponent() {
   }
 
   function itemInstanceCall(item_instance) {
-    return axios.get('https://www.bungie.net/platform/Destiny2/1/Profile/4611686018441343959/Item/' + item_instance + '/?components=304,305,300,307', {
+    return axios.get('https://www.bungie.net/Platform/Destiny2/1/Profile/4611686018441343959/Item/' + item_instance + '/?components=304,305,300,307', {
       headers: {
         "X-API-Key": process.env.REACT_APP_API_KEY
       },
@@ -62,6 +63,16 @@ function BungieApiComponent() {
   }
   
   useEffect(() => {
+
+    axios.get('https://www.bungie.net/Platform/User/GetMembershipsById/' + membershipID + '/1/', {
+      headers: {
+        "X-API-Key": process.env.REACT_APP_API_KEY,
+        "Authorization": "Bearer " + token
+      },
+      responseType: "json"
+    }).then((response) => {
+      setUserName(response.data.Response.bungieNetUser.displayName)
+    })
 
     let item_instance_calls = [itemInstanceCall('6917530024284244307'), itemInstanceCall('6917529457637024711'), itemInstanceCall('6917530023065128848'), itemInstanceCall('6917530024166539356'), itemInstanceCall('6917529765855650806'), itemInstanceCall('6917530023636892379'), itemInstanceCall('6917530024281389326')]
 
@@ -234,6 +245,8 @@ function BungieApiComponent() {
     <div className='App'>
         { data ? 
           <div>
+            Hello, {userName}
+            <br />
             Helmets:
             <ul>
               {
