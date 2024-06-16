@@ -46,7 +46,7 @@ function App() {
 
     return (
       <div className="App">
-        {authCode === undefined ? <button onClick={logIn}>Log In</button> : <BungieApiComponent membershipID={tokenData.membership_id}/>}
+        {authCode === undefined ? <button onClick={logIn}>Log In</button> : <BungieApiComponent membershipID={tokenData.membership_id} token={tokenData.access_token}/>}
       </div>
     );
 }
