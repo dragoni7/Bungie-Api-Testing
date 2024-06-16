@@ -4,7 +4,6 @@ import BungieApiComponent from './components/BungieApiComponent'
 
 function App() {
 
-  const [authCode, setAuthCode] = useState(undefined)
   const [tokenData, setTokenData] = useState(undefined)
 
   function logIn() {
@@ -14,8 +13,7 @@ function App() {
   useEffect(() => {
 
     if (window.location.href.includes("code=")) {
-      var authCodeHref = window.location.href;
-      setAuthCode(authCodeHref.split('code=')[1]);
+      var authCodeHref = window.location.href
     }
 
     if (window.location.href.includes("code=")) {
@@ -46,7 +44,7 @@ function App() {
 
     return (
       <div className="App">
-        {authCode === undefined ? <button onClick={logIn}>Log In</button> : <BungieApiComponent membershipID={tokenData.membership_id} token={tokenData.access_token}/>}
+        {tokenData === undefined ? <button onClick={logIn}>Log In</button> : <BungieApiComponent membershipID={tokenData.membership_id} token={tokenData.access_token}/>}
       </div>
     );
 }

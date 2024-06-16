@@ -72,7 +72,9 @@ function BungieApiComponent({membershipID, token}) {
       responseType: "json"
     }).then((response) => {
       setUserName(response.data.Response.bungieNetUser.displayName)
-    })
+    }).catch(error => {
+      console.error(error);
+    });
 
     let item_instance_calls = [itemInstanceCall('6917530024284244307'), itemInstanceCall('6917529457637024711'), itemInstanceCall('6917530023065128848'), itemInstanceCall('6917530024166539356'), itemInstanceCall('6917529765855650806'), itemInstanceCall('6917530023636892379'), itemInstanceCall('6917530024281389326')]
 
